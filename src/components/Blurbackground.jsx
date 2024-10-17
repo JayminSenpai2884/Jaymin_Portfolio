@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+
 const linearVariants = {
   animate1: {
     opacity: [0.5, 1, 0.5],
