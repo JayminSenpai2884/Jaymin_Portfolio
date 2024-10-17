@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const linearVariants = {
   animate1: {
     opacity: [0.5, 1, 0.5],
-    x: ['-100%', '0%', '-100%'],
+    x: ['-200%', '100%', '-200%'],
     transition: {
       duration: 8,
       repeat: Infinity,
@@ -13,7 +13,7 @@ const linearVariants = {
   },
   animate2: {
     opacity: [0.6, 1, 0.6],
-    x: ['-80%', '20%', '-80%'],
+    x: ['-180%', '120%', '-180%'],
     transition: {
       duration: 9,
       repeat: Infinity,
@@ -22,7 +22,7 @@ const linearVariants = {
   },
   animate3: {
     opacity: [0.7, 1, 0.7],
-    x: ['-60%', '40%', '-60%'],
+    x: ['-160%', '140%', '-160%'],
     transition: {
       duration: 10,
       repeat: Infinity,
@@ -31,7 +31,7 @@ const linearVariants = {
   },
   animate4: {
     opacity: [0.8, 1, 0.8],
-    x: ['-40%', '60%', '-40%'],
+    x: ['-140%', '160%', '-140%'],
     transition: {
       duration: 11,
       repeat: Infinity,
@@ -40,7 +40,7 @@ const linearVariants = {
   },
   animate5: {
     opacity: [0.9, 1, 0.9],
-    x: ['-20%', '80%', '-20%'],
+    x: ['-120%', '180%', '-120%'],
     transition: {
       duration: 12,
       repeat: Infinity,
@@ -49,7 +49,7 @@ const linearVariants = {
   },
   animate6: {
     opacity: [1, 1, 1],
-    x: ['0%', '100%', '0%'],
+    x: ['-100%', '200%', '-100%'],
     transition: {
       duration: 13,
       repeat: Infinity,
