@@ -5,7 +5,7 @@ import { PiXLogoBold } from 'react-icons/pi';
 const socialLinks = [
   { name: 'Instagram', icon: FaInstagram, url: 'https://www.instagram.com/jayminsinh_2884/', color: 'hover:text-pink-500' },
   { name: 'LinkedIn', icon: FaLinkedin, url: 'https://www.linkedin.com/in/jayminparmar2884/', color: 'hover:text-blue-600' },
-  { name: 'X',  icon: PiXLogoBold, url: 'https://twitter.com/yourusername', color: 'hover:text-blue-400' },
+  { name: 'X',  icon: PiXLogoBold, url: 'https://x.com/jaiminp90840206', color: 'hover:text-blue-400' },
   { name: 'GitHub', icon: FaGithub, url: 'https://github.com/JayminSenpai2884', color: 'hover:text-gray-400' },
   { name: 'Gmail', icon: FaGoogle, url: 'mailto:work.jaymin2884@gmail.com', color: 'hover:text-red-500' },
 ];
