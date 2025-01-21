@@ -9,15 +9,15 @@ export const LINKS = [
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Contact" }
 ];
 
 export const HERO_CONTENT = {
   greeting: "Hey, I'm Jaymin ",
   introduction:
-    "I’m Jayminkumar Parmar, a dedicated full-stack developer with a passion for crafting innovative and user-centric web applications.",
+    "I'm all about tech! Whether it's building full-stack apps, diving into UI/UX design, or troubleshooting tricky systems, I love tackling challenges. I'm always learning, always optimizing, and always ready to make things work better.",
   description:
-    "I have a keen interest in Web 3 technologies, data analysis, and designing user-friendly UI/UX. I’m passionate about discovering creative solutions that improve user experiences and simplify workflows.",
+    "I have a strong interest in Web3, data analysis, and creating user-friendly designs. My passion is finding creative solutions that improve user experiences and make workflows smoother.",
   resumeLinkText: "Download Resume",
   resumeLink: "/resume.pdf",
 };
@@ -51,11 +51,11 @@ export const PROJECTS = [
     link: "https://captioncraftsai.netlify.app",
   },
   {
-    name: "Recipe Finder",
+    name: "JPWrites - Personal Blog",
     description:
-      "A web app that helps users discover recipes based on the ingredients they have on hand, providing easy meal solutions.",
+      "Check out my blog where I share insights about tech, development tips, and my learning journey.",
     image: projects5,
-    link: "https://github.com/JayminSenpai2884",
+    link: "https://jpwrites.vercel.app/",
   },
 ];
 
@@ -80,12 +80,12 @@ export const EXPERIENCES = [
   },
   {
     yearRange: "May 2022 — September 2022",
-    title: "Software Developer Intern at L&T Technology Services",
-    location: "Vadodara, GJ",
+    title: "Web Developer Intern",
+    location: "Anand, GJ",
     description: [
-      "Developed enterprise-level web applications using Node.js and Express.js.",
-      "Optimized MySQL queries, reducing response times by 25%.",
-      "Automated data processing tasks using Python scripts and integrated RESTful APIs.",
+      "Developed responsive web applications using modern technologies, focusing on performance optimization.",
+      "Streamlined data flow between front-end and back-end systems, improving system responsiveness.",
+      "Contributed to timely feature releases while ensuring alignment with requirements.",
     ],
   },
   {
@@ -121,5 +121,5 @@ export const CONTACT_CONTENT = {
     },
     // You can add more social links if needed
   ],
-  footerText: `© ${new Date().getFullYear()} Jayminkumar Parmar. All rights reserved.`,
+  footerText: `© ${new Date().getFullYear()} Jaymin Parmar. All rights reserved.`,
 };
