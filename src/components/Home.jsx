@@ -79,6 +79,7 @@ const Home = () => {
 
   return (
     <section className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8">
+      
       <motion.div
         className="w-full max-w-3xl"
         variants={containerVariant}
@@ -122,7 +123,7 @@ const Home = () => {
               2000,
               "UI/UX Designer",
               2000,
-              "Data Analyst",
+              "IT Customer Support",
               2000,
               "Freelancer",
               2000,

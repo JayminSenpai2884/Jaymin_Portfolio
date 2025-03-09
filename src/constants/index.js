@@ -69,6 +69,17 @@ export const ABOUT_CONTENT = {
 
 export const EXPERIENCES = [
   {
+    yearRange: "March 2025 — Present",
+    title: "Technical Support Specialist at OpenText",
+    location: "Waterloo, ON",
+    description: [
+      "Providing technical support and troubleshooting for Carbonite cloud service.",
+      "Collaborating with cross-functional teams to resolve customer issues promptly.",
+      "Leveraging knowledge of cloud technologies and support tools to enhance user experience.",
+      "Documenting solutions and best practices to improve efficiency and customer satisfaction.",
+    ]
+  }  
+  ,{
     yearRange: "2023 — Present",
     title: "Customer Service Representative at Tim Hortons",
     location: "Waterloo, ON",

@@ -1,0 +1,52 @@
+Jaymin Parmar
+work.jaymin2884@gmail.com | (226)-600-1288 | LinkedIn link: jayminlinkedin.com | Portfolio link : xyz.com
+EDUCATION
+Conestoga College Waterloo, ON
+Diploma in Computer Programming Graduated, May 2024
+o Concentrations: Software Engineering, Data Management, Quality Assurance
+o GPA: 3.43/4.00, Graduated with Distinction
+o Related Coursework: Data Structures & Algorithms, Systems Analysis & Design, Networking, SQL Databases,
+Web & Mobile App Development, Game Programming, Software Quality Assurance, and Small Business Solutions.
+SKILLS
+Programming: C#, Python, JavaScript, HTML/CSS, SQL
+Technologies: Node.js, React, Next.js, .NET, Salesforce, MySQL, PostgreSQL, Git, RESTful APIs, SAP, WordPress, PHP
+Analytics & Reporting: Data Analysis, Campaign Performance Optimization, Dashboard Development
+Email Marketing Tools: ESP Platforms (e.g.,Mailchimp, Salesforce Marketing Cloud, Klaviyo, Braze), CRM systems (Salesforce
+Certified AI Associate, HubSpot)
+Soft Skills: Problem-Solving, Time Management, Strong Communication, Adaptability, Customer Service, Team Collaboration
+Development Tools: Visual Studio, VS code, Jira, SQL Server Management Studio, Azure Database
+EXPERIENCE
+Amul India Vadodara , Gujarat
+Web Developer Intern May 2022 – Sep 2022
+● Designed and developed responsive, user-friendly web applications using React.js, Node.js, and RESTful APIs, focusing
+on performance optimization and seamless user experience.
+● Streamlined data flow between front-end and back-end systems by optimizing API integrations, resulting in a 15%
+improvement in system responsiveness.
+● Participated in Agile sprint planning and delivery cycles, contributing to timely and efficient feature releases, and
+ensuring alignment with client requirements
+Pearl Computers Borsad, Anand
+Hardware and Software Assistant July 2021 – April 2022
+● Installed and configured IT systems, including software and hardware troubleshooting, ensuring smooth operation for
+clients in diverse industries
+● Assisted in CRM system configuration and customization for clients, improving data management workflows and
+supporting customer relationship optimization.
+● Delivered end-user training on hardware and software systems, improving overall client satisfaction and reducing
+support requests by 25%.
+PROJECTS
+CaptionCraftAI
+Technologies: Next.js, Stripe, Gemini API, PostgreSQL(Neon)
+● Created an AI platform for generating custom captions using Next.js for performance optimization and Gemini API for
+trending topic analysis.
+● Integrated Stripe for payment processing and stored data in PostgreSQL, ensuring a seamless user experience.
+QuickMail
+Technologies:Vite+React, AI integration
+● Designed and implemented a modern, intuitive UI/UX with React.js and Vite, focusing on smooth navigation,
+responsiveness, and a user-friendly experience across devices.
+● Focused on modern design principles to ensure the application feels fresh and intuitive, driving user satisfaction and
+engagement.
+FinInsights Pro
+Technologies:React, Python, PhiData, LangFlow, Firebase
+● Developed AI-powered expense categorization using [Gemini AI API], enhancing user insights and financial tracking
+accuracy.
+● Engineered a robust and scalable data infrastructure leveraging Firebase and Python with PhiData, ensuring efficient
+data processing, storage, and retrieval for advanced analytics.
