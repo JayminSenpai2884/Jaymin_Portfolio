@@ -123,7 +123,7 @@ const Home = () => {
               2000,
               "UI/UX Designer",
               2000,
-              "IT Customer Support",
+              "IT Specialist",
               2000,
               "Freelancer",
               2000,
