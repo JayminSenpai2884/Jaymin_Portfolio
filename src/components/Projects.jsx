@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { PROJECTS } from '../constants'
+import { FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa'
 
 const projectVariant = {
     hidden: { opacity: 0, y: 20 },
@@ -36,48 +37,103 @@ const BentoGrid = ({ children, className }) => (
 const BentoGridItem = ({ project, className }) => (
   <motion.div 
     variants={projectVariant}
-    className={`group bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg ${className}`}
+    className={`group bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/20 transition-all duration-500 ${className}`}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ amount: 0.3 }}
     transition={{ duration: 0.5, type: "spring", stiffness: 50 }}
+    whileHover={{ 
+      y: -5,
+      transition: { duration: 0.3 }
+    }}
   >
-    <div className='relative overflow-hidden'>
-      <img 
-        src={project.image} 
-        alt={project.name} 
-        className='w-full h-40 sm:h-48 object-cover transition-all duration-300 group-hover:brightness-110 group-hover:scale-105' 
-      />
-      <div className='absolute top-0 left-0 w-full h-full bg-black/30 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0'>
-        <h3 className='text-lg sm:text-xl font-bold text-white text-center px-4'>
+    <div className='p-6 h-full flex flex-col'>
+      {/* Project Name with Animation */}
+      <motion.div 
+        className='mb-6'
+        initial={{ x: 0 }}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.h3 
+          className='text-2xl md:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300'
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
           {project.name}
-        </h3>
-      </div>
-    </div>
-    <div className='p-4 sm:p-6'>
-      <p className='text-xs sm:text-sm text-stone-300 mb-3 sm:mb-4'>
+        </motion.h3>
+        <motion.div 
+          className='w-16 h-1 bg-blue-500 mt-3'
+          initial={{ width: "4rem" }}
+          whileHover={{ width: "6rem" }}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.div>
+      
+      {/* Project Description */}
+      <motion.p 
+        className='text-sm md:text-base text-gray-300 mb-6 flex-grow'
+        initial={{ opacity: 0.8 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         {project.description}
-      </p>
+      </motion.p>
+      
+      {/* Technologies */}
       {project.technologies && (
-        <div className='flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4'>
+        <div className='flex flex-wrap gap-2 mb-4'>
           {project.technologies.map((tech, techIndex) => (
-            <span key={techIndex} className='bg-white/10 text-stone-300 px-2 py-1 rounded-full text-xs'>
+            <motion.span 
+              key={techIndex} 
+              className='bg-white/10 text-stone-300 px-3 py-1 rounded-full text-xs'
+              whileHover={{ 
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                color: "#ffffff",
+                scale: 1.05
+              }}
+              transition={{ duration: 0.2 }}
+            >
               {tech}
-            </span>
+            </motion.span>
           ))}
         </div>
       )}
+      
+      {/* Link Button */}
       {project.link && (
-        <a 
+        <motion.a 
           href={project.link} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className='inline-block bg-white/10 hover:bg-white/20 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full transition duration-300 text-xs sm:text-sm font-medium'
+          className='inline-flex items-center gap-2 text-blue-400 font-medium mt-auto group/link'
+          whileHover={{ x: 3 }}
+          transition={{ duration: 0.2 }}
         >
-          View Project
-        </a>
+          <span className="text-sm md:text-base">View Project</span>
+          <motion.span
+            initial={{ x: 0 }}
+          >
+            <FaArrowRight size={14} />
+          </motion.span>
+        </motion.a>
       )}
     </div>
+    
+    {/* Animated Border Effect */}
+    <div className="absolute inset-0 border border-blue-500/0 group-hover:border-blue-500/30 rounded-xl transition-all duration-500" />
+    
+    {/* Animated Glow Effect */}
+    <motion.div 
+      className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
+      initial={{ opacity: 0 }}
+      whileHover={{ opacity: 0.1}}
+      transition={{ duration: 0.2 }}
+    />
+    
+    {/* Bottom Accent Line */}
+    <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 w-0 group-hover:w-full transition-all duration-700 ease-out" />
   </motion.div>
 )
 
@@ -85,15 +141,22 @@ const Projects = () => {
     return (
         <section id='projects' className='py-8 sm:py-12 md:py-20 lg:py-24'>
             <div className='container mx-auto px-4 sm:px-6 md:px-8'>
-                <motion.h2 
-                    className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-white'
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ amount: 0.5 }}
-                    transition={{ duration: 0.5 }}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.7 }}
                 >
-                    My Projects
-                </motion.h2>
+                    <motion.h2 
+                        className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-white'
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ amount: 0.5 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        My Projects</motion.h2>
+                        
+                </motion.div>
                 <BentoGrid>
                     {PROJECTS.map((project, index) => (
                         <BentoGridItem 

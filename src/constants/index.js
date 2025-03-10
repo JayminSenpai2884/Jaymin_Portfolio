@@ -15,9 +15,9 @@ export const LINKS = [
 export const HERO_CONTENT = {
   greeting: "Hey, I'm Jaymin ",
   introduction:
-    "I'm all about tech! Whether it's building full-stack apps, diving into UI/UX design, or troubleshooting tricky systems, I love tackling challenges. I'm always learning, always optimizing, and always ready to make things work better.",
+    "I’m a developer passionate about creating responsive, user-friendly web applications with high performance.",
   description:
-    "I have a strong interest in Web3, data analysis, and creating user-friendly designs. My passion is finding creative solutions that improve user experiences and make workflows smoother.",
+    "With experience in both frontend and backend development, I collaborate to build clean, maintainable code and explore cloud and AI-driven solutions.",
   resumeLinkText: "Download Resume",
   resumeLink: "/resume.pdf",
 };
