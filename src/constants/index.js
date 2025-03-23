@@ -1,8 +1,3 @@
-import projects1 from "../assets/projects1.webp";
-import projects2 from "../assets/projects2.webp";
-import projects3 from "../assets/projects3.webp";
-import projects4 from "../assets/projects4.webp";
-import projects5 from "../assets/projects5.webp";
 
 export const LINKS = [
   { href: "#home", label: "Home" },

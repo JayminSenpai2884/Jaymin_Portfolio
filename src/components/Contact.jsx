@@ -41,8 +41,8 @@ const Contact = () => {
       className="py-16 md:py-20 lg:py-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ amount: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <div className="container mx-auto px-4 md:px-8">
         <motion.h2 
@@ -60,7 +60,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: 0.2 ,ease:"easeInOut"}}
-            viewport={{ amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h3 className="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
               
@@ -82,8 +82,8 @@ const Contact = () => {
             className="grid grid-cols-3 sm:grid-cols-5 gap-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4, staggerChildren: 0.1 }}
-            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4, staggerChildren: 0.1, ease: "easeInOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             {socialLinks.map((link, index) => (
               <ContactItem key={index} {...link} index={index} />

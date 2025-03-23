@@ -8,7 +8,7 @@ const projectVariant = {
     visible: { 
         opacity: 1, 
         y: 0, 
-        transition: { duration: 0.5, ease: 'easeOut' } 
+        transition: { duration: 0.5, ease: 'easeInOut' }
     }
 }
 
@@ -17,7 +17,8 @@ const containerVariant = {
     visible: { 
         opacity: 1,
         transition: { 
-            staggerChildren: 0.1
+            staggerChildren: 0.1,
+            ease: "easeInOut"
         }
     }
 }
@@ -28,7 +29,7 @@ const BentoGrid = ({ children, className }) => (
     variants={containerVariant}
     initial="hidden"
     whileInView="visible"
-    viewport={{ amount: 0.2 }}
+    viewport={{ once: true, amount: 0.2 }}
   >
     {children}
   </motion.div>
@@ -40,11 +41,11 @@ const BentoGridItem = ({ project, className }) => (
     className={`group bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/20 transition-all duration-500 ${className}`}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ amount: 0.3 }}
-    transition={{ duration: 0.5, type: "spring", stiffness: 50 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5, type: "spring", stiffness: 50, ease: "easeInOut" }}
     whileHover={{ 
       y: -5,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3, ease: "easeInOut" }
     }}
   >
     <div className='p-6 h-full flex flex-col'>

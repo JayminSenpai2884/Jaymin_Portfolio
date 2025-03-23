@@ -85,6 +85,8 @@ const Home = () => {
         variants={containerVariant}
         initial="hidden"
         animate="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         <motion.h1
           variants={textVariant}
@@ -158,6 +160,7 @@ const Home = () => {
             initial="initial"
             animate="animate"
             exit="exit"
+            viewport={{ once: true, amount: 0.2 }}
           >
             <FaMouse className="text-2xl md:text-3xl text-white mb-2" />
             <FaChevronDown className="text-xl md:text-2xl text-white" />
