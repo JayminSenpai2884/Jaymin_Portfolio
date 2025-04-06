@@ -1,4 +1,3 @@
-
 export const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
@@ -10,7 +9,7 @@ export const LINKS = [
 export const HERO_CONTENT = {
   greeting: "Hey, I'm Jaymin ",
   introduction:
-    "I’m a developer passionate about creating responsive, user-friendly web applications with high performance.",
+    "I'm a developer passionate about creating responsive, user-friendly web applications with high performance.",
   description:
     "With experience in both frontend and backend development, I collaborate to build clean, maintainable code and explore cloud and AI-driven solutions.",
   resumeLinkText: "Download Resume",
@@ -21,35 +20,35 @@ export const PROJECTS = [
     name: "Muzic",
     description:
       "AI-powered music recommendation app offering personalized song suggestions, secure user management, and seamless payment integration.",
-    image: projects1,
+    technologies: ["React", "Node.js", "MongoDB", "AI"],
     link: "https://muzicjp.netlify.app",
   },
   {
     name: "QuickMail",
     description:
       "Effortlessly craft personalized and professional emails using advanced AI technology, ensuring impactful communication with every message.",
-    image: projects2,
+    technologies: ["Next.js", "OpenAI", "Tailwind"],
     link: "https://quickmail-jp.vercel.app/",
   },
   {
     name: "FilmyBox",
     description:
       "A movie discovery app providing personalized film recommendations based on user preferences.",
-    image: projects3,
+    technologies: ["React", "TMDB API", "CSS"],
     link: "https://github.com/JayminSenpai2884/FilmyBox",
   },
   {
     name: "CaptionCraftAI",
     description:
       "An AI-driven content creation tool designed to generate captivating captions, tweets, and LinkedIn posts. Features secure user login via Clerk and stripe payment processing, ensuring a seamless user experience.",
-    image: projects4,
+    technologies: ["React", "Clerk", "Stripe", "AI"],
     link: "https://captioncraftsai.netlify.app",
   },
   {
     name: "JPWrites - Personal Blog",
     description:
       "Check out my blog where I share insights about tech, development tips, and my learning journey.",
-    image: projects5,
+    technologies: ["Next.js", "MDX", "Tailwind"],
     link: "https://jpwrites.vercel.app/",
   },
 ];

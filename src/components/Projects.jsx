@@ -39,95 +39,48 @@ const BentoGridItem = ({ project, className }) => (
   <motion.div 
     variants={projectVariant}
     className={`group bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden shadow-lg hover:shadow-blue-500/20 transition-all duration-500 ${className}`}
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.3 }}
-    transition={{ duration: 0.5, type: "spring", stiffness: 50, ease: "easeInOut" }}
-    whileHover={{ 
-      y: -5,
-      transition: { duration: 0.3, ease: "easeInOut" }
-    }}
   >
     <div className='p-6 h-full flex flex-col'>
       {/* Project Name with Animation */}
-      <motion.div 
-        className='mb-6'
-        initial={{ x: 0 }}
-        whileHover={{ x: 5 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.h3 
-          className='text-2xl md:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300'
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
+      <motion.div className='mb-6'>
+        <motion.h3 className='text-2xl md:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300'>
           {project.name}
         </motion.h3>
-        <motion.div 
-          className='w-16 h-1 bg-blue-500 mt-3'
-          initial={{ width: "4rem" }}
-          whileHover={{ width: "6rem" }}
-          transition={{ duration: 0.3 }}
-        />
+        <motion.div className='w-16 h-1 bg-blue-500 mt-3' />
       </motion.div>
       
       {/* Project Description */}
-      <motion.p 
-        className='text-sm md:text-base text-gray-300 mb-6 flex-grow'
-        initial={{ opacity: 0.8 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
+      <p className='text-sm md:text-base text-gray-300 mb-6 flex-grow'>
         {project.description}
-      </motion.p>
+      </p>
       
       {/* Technologies */}
       {project.technologies && (
-        <div className='flex flex-wrap gap-2 mb-4'>
+        <div className='flex flex-wrap gap-2 mb-6'>
           {project.technologies.map((tech, techIndex) => (
-            <motion.span 
+            <span 
               key={techIndex} 
               className='bg-white/10 text-stone-300 px-3 py-1 rounded-full text-xs'
-              whileHover={{ 
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                color: "#ffffff",
-                scale: 1.05
-              }}
-              transition={{ duration: 0.2 }}
             >
               {tech}
-            </motion.span>
+            </span>
           ))}
         </div>
       )}
       
-      {/* Link Button */}
+      {/* Link Button - Simplified for testing */}
       {project.link && (
-        <motion.a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className='inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium mt-auto group/link cursor-pointer'
-          whileHover={{ x: 3 }}
-          transition={{ duration: 0.2 }}
-        >
-          <span className="text-sm md:text-base">View Project</span>
-          <FaArrowRight className="group-hover/link:translate-x-1 transition-transform" size={14} />
-        </motion.a>
+        <div className="mt-auto">
+          <button
+            onClick={() => window.open(project.link, '_blank', 'noopener,noreferrer')}
+            className='group/link inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium cursor-pointer'
+          >
+            <span className="text-sm md:text-base">View Project</span>
+            <FaExternalLinkAlt size={14} />
+          </button>
+        </div>
       )}
     </div>
-    
-    {/* Animated Border Effect */}
-    <div className="absolute inset-0 border border-blue-500/0 group-hover:border-blue-500/30 rounded-xl transition-all duration-500" />
-    
-    {/* Animated Glow Effect */}
-    <motion.div 
-      className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500"
-      initial={{ opacity: 0 }}
-      whileHover={{ opacity: 0.1}}
-      transition={{ duration: 0.2 }}
-    />
     
     {/* Bottom Accent Line */}
     <div className="h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 w-0 group-hover:w-full transition-all duration-700 ease-out" />
