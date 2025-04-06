@@ -108,16 +108,12 @@ const BentoGridItem = ({ project, className }) => (
           href={project.link} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className='inline-flex items-center gap-2 text-blue-400 font-medium mt-auto group/link'
+          className='inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium mt-auto group/link cursor-pointer'
           whileHover={{ x: 3 }}
           transition={{ duration: 0.2 }}
         >
           <span className="text-sm md:text-base">View Project</span>
-          <motion.span
-            initial={{ x: 0 }}
-          >
-            <FaArrowRight size={14} />
-          </motion.span>
+          <FaArrowRight className="group-hover/link:translate-x-1 transition-transform" size={14} />
         </motion.a>
       )}
     </div>
