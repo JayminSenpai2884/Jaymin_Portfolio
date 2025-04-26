@@ -8,21 +8,21 @@ export const LINKS = [
 
 export const HERO_CONTENT = {
   greeting: "Hey, I'm Jaymin ",
-  introduction:
-    "I'm a developer passionate about creating responsive, user-friendly web applications with high performance.",
+  introduction: "I'm a developer focused on building high-performance, user-friendly web applications.",
   description:
-    "With experience in both frontend and backend development, I collaborate to build clean, maintainable code and explore cloud and AI-driven solutions.",
+    "I work across frontend and backend, explore cloud and AI solutions, and am currently diving into Data Science and AI/ML.",
   resumeLinkText: "Download Resume",
   resumeLink: "/resume.pdf",
 };
 export const PROJECTS = [
   {
-    name: "Muzic",
+    name: "StepByStep",
     description:
-      "AI-powered music recommendation app offering personalized song suggestions, secure user management, and seamless payment integration.",
-    technologies: ["React", "Node.js", "MongoDB", "AI"],
-    link: "https://muzicjp.netlify.app",
+      "AI-powered roadmap generator built with React.js and Vite, designed to offer a clean, responsive UI and a personalized user experience.",
+    technologies: ["React", "Vite", "AI", "Figma"],
+    link: "https://stepbystep-rho.vercel.app/", 
   },
+  
   {
     name: "QuickMail",
     description:
@@ -64,7 +64,8 @@ export const ABOUT_CONTENT = {
 export const EXPERIENCES = [
   {
     yearRange: "March 2025 — Present",
-    title: "Technical Support Specialist at OpenText",
+    title: "Technical Support Specialist",
+    company: "OpenText",
     location: "Waterloo, ON",
     description: [
       "Providing technical support and troubleshooting for Carbonite cloud service.",
@@ -72,10 +73,11 @@ export const EXPERIENCES = [
       "Leveraging knowledge of cloud technologies and support tools to enhance user experience.",
       "Documenting solutions and best practices to improve efficiency and customer satisfaction.",
     ]
-  }  
-  ,{
-    yearRange: "2023 — Present",
-    title: "Customer Service Representative at Tim Hortons",
+  },
+  {
+    yearRange: "September 2022 — March 2025",
+    title: "Customer Service Representative",
+    company: "Tim Hortons",
     location: "Waterloo, ON",
     description: [
       "Developed strong customer service skills and efficient service delivery.",
@@ -84,8 +86,9 @@ export const EXPERIENCES = [
     ],
   },
   {
-    yearRange: "May 2022 — September 2022",
+    yearRange: "May 2022 — August 2022",
     title: "Web Developer Intern",
+    company: "WEIZUR PRIVATE LIMITED",
     location: "Anand, GJ",
     description: [
       "Developed responsive web applications using modern technologies, focusing on performance optimization.",
@@ -95,7 +98,8 @@ export const EXPERIENCES = [
   },
   {
     yearRange: "July 2021 — April 2022",
-    title: "Hardware and Software Assistant at Pearl Computer",
+    title: "Hardware and Software Assistant",
+    company: "Pearl Computer",
     location: "Borsad, GJ",
     description: [
       "Diagnosed and resolved hardware and software issues, improving system performance.",

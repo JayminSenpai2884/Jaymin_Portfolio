@@ -4,32 +4,27 @@ import { HERO_CONTENT } from "../constants";
 import { TypeAnimation } from "react-type-animation";
 import { FaChevronDown, FaMouse } from "react-icons/fa";
 
-const textVariant = {
-  hidden: {
-    y: 50,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
 const containerVariant = {
-  hidden: {
-    opacity: 0,
-  },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+};
+
+const textVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
 };
 
 const scrollDownVariant = {
@@ -41,25 +36,8 @@ const scrollDownVariant = {
       repeat: Infinity,
       repeatType: "reverse",
       duration: 1,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.3 },
-  },
-};
-
-const waveVariant = {
-  animate: {
-    rotate: [0, 15, -15, 15, 0],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      repeatType: "loop",
-      ease: "easeInOut",
-      times: [0, 0.2, 0.4, 0.6, 1],
-    },
-  },
+    }
+  }
 };
 
 const Home = () => {
@@ -71,87 +49,78 @@ const Home = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 md:px-8">
-      
       <motion.div
-        className="w-full max-w-3xl"
+        className="w-full max-w-4xl"
         variants={containerVariant}
         initial="hidden"
         animate="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        <motion.h1
-          variants={textVariant}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-        >
-          {HERO_CONTENT.greeting.split(" ").map((word, index) => (
-            <span key={index} className="inline-block mr-2">
-              {word === "Hello" ? (
-                <span className="relative group">
-                  {word}
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 transform origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-                </span>
-              ) : (
-                word
-              )}
-            </span>
-          ))}
-          <span>
+        <motion.div variants={textVariant} className="mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+            {HERO_CONTENT.greeting}
             <motion.span
-              className="inline-block"
-              variants={waveVariant}
-              animate="animate"
-              style={{ originX: 0.7, originY: 0.7 }}
+              className="inline-block ml-2"
+              animate={{ rotate: [0, 15, -15, 15, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
             >
               👋
             </motion.span>
-          </span>
-        </motion.h1>
-        <motion.div
-          variants={textVariant}
-          className="text-2xl md:text-3xl font-semibold mb-6 text-blue-400"
-        >
-          <TypeAnimation
-            sequence={[
-              "Full Stack Developer",
-              2000,
-              "UI/UX Designer",
-              2000,
-              "IT Specialist",
-              2000,
-              "Freelancer",
-              2000,
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-          />
+          </h1>
         </motion.div>
-        <motion.p variants={textVariant} className="text-xl mb-4">
-          {HERO_CONTENT.introduction}
-        </motion.p>
-        <motion.p variants={textVariant} className="text-lg mb-8 text-gray-300">
-          {HERO_CONTENT.description}
-        </motion.p>
-        <motion.a
-          variants={textVariant}
-          href="./ResumeJayminWeb.pdf"
-          target="_blank"
-          className="px-8 py-3 bg-white text-gray-900 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-gray-200 hover:shadow-lg hover:scale-105 hover:bg-opacity-80"
-        >
-          {HERO_CONTENT.resumeLinkText}
-        </motion.a>
+
+        <motion.div variants={textVariant} className="mb-8">
+          <div className="text-2xl sm:text-3xl font-semibold text-blue-300">
+            <TypeAnimation
+              sequence={[
+                "Full Stack Developer",
+                2000,
+                "UI/UX Designer",
+                2000,
+                "IT Specialist",
+                2000,
+                "Freelancer",
+                2000,
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+            />
+          </div>
+        </motion.div>
+
+        <motion.div variants={textVariant} className="mb-8">
+          <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mb-4 md:whitespace-nowrap">
+            {HERO_CONTENT.introduction}
+          </p>
+          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl">
+            {HERO_CONTENT.description}
+          </p>
+        </motion.div>
+
+        <motion.div variants={textVariant}>
+          <a
+            href="./ResumeJayminWeb.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center bg-white/5 backdrop-blur-lg text-white px-8 py-3 rounded-full border border-white/10 hover:border-blue-400/20 hover:text-blue-300 transition-all duration-300"
+          >
+            <span>{HERO_CONTENT.resumeLinkText}</span>
+            <motion.span
+              className="ml-2"
+              whileHover={{ x: [0, 5, 0] }}
+              transition={{ duration: 0.5, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+          </a>
+        </motion.div>
       </motion.div>
 
-      {/* Scroll down animation */}
       <AnimatePresence>
         {showScroll && (
           <motion.div
@@ -159,11 +128,10 @@ const Home = () => {
             variants={scrollDownVariant}
             initial="initial"
             animate="animate"
-            exit="exit"
-            viewport={{ once: true, amount: 0.2 }}
+            exit={{ opacity: 0 }}
           >
-            <FaMouse className="text-2xl md:text-3xl text-white mb-2" />
-            <FaChevronDown className="text-xl md:text-2xl text-white" />
+            <FaMouse className="text-2xl text-white/50 mb-2" />
+            <FaChevronDown className="text-xl text-white/50" />
           </motion.div>
         )}
       </AnimatePresence>

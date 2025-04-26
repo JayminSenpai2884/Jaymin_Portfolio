@@ -2,64 +2,119 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { EXPERIENCES } from '../constants';
 
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+};
+
 const Experience = () => {
   return (
     <section id="experience" className="py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 lg:mb-20 text-white">
-          My Experience
-        </h2>
-        <div className="relative">
-          {/* Vertical line - hidden on mobile */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-500"></div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ amount: 0.2, once: false }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.5, once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            Experience
+          </motion.h2>
+          <motion.p 
+            className="text-gray-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ delay: 0.2 }}
+          >
+            My professional journey and achievements
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          className="max-w-4xl mx-auto relative"
+        >
+          {/* Vertical line */}
+          <motion.div 
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/40 via-blue-500/30 to-transparent"
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: false }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          ></motion.div>
           
           {EXPERIENCES.map((exp, index) => (
             <motion.div
               key={index}
-              className={`mb-12 md:mb-16 md:flex justify-between items-center w-full relative ${
-                index % 2 === 0 ? 'md:flex-row-reverse' : ''
-              }`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              variants={itemVariant}
+              className={`group relative mb-12 last:mb-0 ${
+                index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'
+              } md:w-1/2`}
             >
-              <div className="hidden md:block w-5/12"></div>
               {/* Branch line */}
               <motion.div 
-                className="hidden md:block absolute top-1/2 bg-blue-500"
-                style={{
-                  width: '20px', // Approximately half a centimeter
-                  height: '2px',
-                  margin: '1px',
-                  left: index % 2 === 0 ? 'auto' : 'calc(50% - 1px)',
-                  right: index % 2 === 0 ? 'calc(50% - 1px)' : 'auto',
-                  transform: 'translateY(-50%)'
-                }}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.2 }}
+                className={`hidden md:block absolute top-1/2 w-8 h-0.5 bg-gradient-to-r ${
+                  index % 2 === 0 ? 'left-0 from-blue-500/40 to-transparent' : 'right-0 from-transparent to-blue-500/40'
+                }`}
+                initial={{ width: 0 }}
+                whileInView={{ width: "2rem" }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               ></motion.div>
-              <motion.div
-                className="bg-white/5 backdrop-blur-lg rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="font-bold text-white text-lg sm:text-xl mb-1">{exp.title}</h3>
-                <h4 className="font-semibold text-blue-300 text-sm sm:text-md mb-2">{exp.location}</h4>
-                <p className="text-xs sm:text-sm text-stone-300 mb-2">{exp.yearRange}</p>
-                <ul className="list-disc list-inside text-xs sm:text-sm leading-snug tracking-wide text-stone-300 text-opacity-100">
+              
+              <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all duration-300">
+                <div className="flex flex-col gap-3 mb-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    {exp.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-sm">
+                    <h4 className="text-blue-300 font-medium">{exp.company}</h4>
+                    <span className="text-gray-400">•</span>
+                    <p className="text-gray-400">{exp.location}</p>
+                  </div>
+                  <span className="text-sm text-blue-400">{exp.yearRange}</span>
+                </div>
+                <ul className="space-y-2">
                   {exp.description.map((item, itemIndex) => (
-                    <li key={itemIndex} className="mb-1">{item}</li>
+                    <li key={itemIndex} className="text-gray-300 text-sm flex items-start">
+                      <span className="text-blue-400 mr-2">•</span>
+                      {item}
+                    </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -8,7 +8,6 @@ import {
 } from 'react-icons/si';
 import { TfiMicrosoftAlt } from 'react-icons/tfi';
 
-
 const skillsData = [
   { category: "Programming Languages", icon: FaCode, items: [
     { name: "C/C++", icon: SiCplusplus },
@@ -38,20 +37,42 @@ const skillsData = [
   ]},
 ];
 
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+};
+
+const itemVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1]
+    }
+  }
+};
+
 const SkillItem = ({ name, icon: Icon }) => (
   <motion.div
-    className="flex items-center bg-white/5 backdrop-blur-lg rounded-lg p-3 cursor-pointer"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    className="group relative flex items-center bg-white/5 backdrop-blur-lg rounded-lg p-4 cursor-pointer hover:bg-white/10 transition-all duration-300"
+    variants={itemVariant}
     whileHover={{ 
-      scale: 1.01, 
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      transition: { duration: 0.2, ease: "easeInOut" } 
+      y: -2,
+      transition: { duration: 0.2 } 
     }}
   >
-    <Icon className="text-blue-400 text-xl mr-2" />
-    <span className="text-white text-sm">{name}</span>
+    <div className="flex items-center space-x-3">
+      <Icon className="text-blue-300 text-xl group-hover:text-blue-200 transition-colors" />
+      <span className="text-white text-sm group-hover:text-blue-200 transition-colors">{name}</span>
+    </div>
   </motion.div>
 );
 
@@ -59,22 +80,57 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 lg:mb-20 text-white">
-          Skills & Technologies
-        </h2>
-        {skillsData.map((category, index) => (
-          <div key={index} className="mb-12">
-            <h3 className="text-2xl font-semibold text-white mb-6 flex items-center">
-              <category.icon className="mr-2 text-blue-400" />
-              {category.category}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {category.items.map((skill, skillIndex) => (
-                <SkillItem key={skillIndex} name={skill.name} icon={skill.icon} />
-              ))}
-            </div>
-          </div>
-        ))}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <motion.h2 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+          >
+            Skills & Technologies
+          </motion.h2>
+          <motion.p 
+            className="text-gray-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Tools and technologies I work with
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="max-w-4xl mx-auto"
+        >
+          {skillsData.map((category, index) => (
+            <motion.div 
+              key={index} 
+              className="mb-12"
+              variants={itemVariant}
+            >
+              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
+                <category.icon className="mr-2 text-blue-300" />
+                {category.category}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {category.items.map((skill, skillIndex) => (
+                  <SkillItem key={skillIndex} name={skill.name} icon={skill.icon} />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
